@@ -6,6 +6,7 @@ import {
     ViroSphere,
     ViroImage,
     ViroVideo,
+    ViroFlexView,
     ViroNode,
     Viro3DObject,
     ViroARTrackingTargets,
@@ -17,42 +18,57 @@ class Scene extends React.Component {
         return (
             <ViroARScene>
                 <ViroARImageMarker target="poster">
-                    {/* <ViroNode
+                    <ViroNode
                         position={[2.0, 5.0, -2.0]}
                         rotation={[-90, 0, 0]}
-                    scale={[2.0, 2.0, 2.0]}
-                    > */}
-                        {/* <ViroImage
-                            position={[0, -.5, -1]}
-                            height={2}
-                            width={2}
-                            source={{ uri: "https://i.kym-cdn.com/entries/icons/mobile/000/005/608/nyan-cat-01-625x450.jpg" }}
-                        /> */}
-                        {/* <ViroVideo
-                            source={require('./res/NyanCat.mp4')}
-                            loop={true}
-                            position={[0, 2, -5]}
-                            scale={[2, 2, 0]}
-                        /> */}
-                        {/* <Viro3DObject source={require('./res/blackpanther/object_bpanther_anim.vrx')} */}
-                        <Viro3DObject source={require('./res/sylvanas_rvx.rvx')}
-                            // resources={[require('./res/blackpanther/sylvana.png'),
-                            // require('./res/blackpanther/object_bpanther_Metallic.png'),
-                            // require('./res/blackpanther/object_bpanther_Mixed_AO.png'),
-                            // require('./res/blackpanther/object_bpanther_Normal_OpenGL.png'),
-                            // require('./res/blackpanther/object_bpanther_Roughness.png')
-                        // ]}
+                        scale={[2.0, 2.0, 2.0]}
+                    >
+
+                        <ViroFlexView
+                            style={{ flexDirection: 'row', padding: 10 }}
+                            width={1}
+                            height={1}
+                        >
+                            <ViroFlexView style={{ flex: 2 }}>
+
+                                <ViroImage
+                                    position={[0, -.5, -1]}
+                                    height={2}
+                                    width={2}
+                                    source={{ uri: "https://i.kym-cdn.com/entries/icons/mobile/000/005/608/nyan-cat-01-625x450.jpg" }}
+                                />
+                            </ViroFlexView>
+
+                            <ViroFlexView style={{ flex: 2 }}>
+
+                                <ViroVideo
+                                    source={require('./res/NyanCat.mp4')}
+                                    loop={true}
+                                    position={[0, 2, -5]}
+                                    scale={[2, 2, 0]}
+                                />
+                            </ViroFlexView>
+                        </ViroFlexView>
+                        {/* 
+                        <Viro3DObject source={require('./res/blackpanther/object_bpanther_anim.vrx')}
+                            resources={[
+                                require('./res/blackpanther/object_bpanther_Base_Color.png'),
+                                require('./res/blackpanther/object_bpanther_Metallic.png'),
+                                require('./res/blackpanther/object_bpanther_Mixed_AO.png'),
+                                require('./res/blackpanther/object_bpanther_Normal_OpenGL.png'),
+                                require('./res/blackpanther/object_bpanther_Roughness.png')
+                            ]}
                             position={[0.0, 0.0, -10]}
                             scale={[0.1, 0.1, 0.1]}
                             type="VRX"
-                            animation={{
-                                name: 'Take 001',
-                                run: true,
-                                loop: true,
-                                delay: 1000
-                            }}
-                        />
-                    {/* </ViroNode> */}
+                        // animation={{
+                        //     name: 'Take 001',
+                        //     run: true,
+                        //     loop: true,
+                        //     delay: 1000
+                        // }}
+                        /> */}
+                    </ViroNode>
                 </ViroARImageMarker>
 
                 <ViroBox
