@@ -9,6 +9,7 @@ import {
     ViroFlexView,
     ViroNode,
     Viro3DObject,
+    ViroText,
     ViroARTrackingTargets,
     ViroARImageMarker
 } from 'react-viro';
@@ -19,36 +20,45 @@ class Scene extends React.Component {
             <ViroARScene>
                 <ViroARImageMarker target="poster">
                     <ViroNode
-                        position={[2.0, 5.0, -2.0]}
+                        // position={[0, 0, 0]}
                         rotation={[-90, 0, 0]}
-                        scale={[2.0, 2.0, 2.0]}
+                        // scale={[2.0, 2.0, 2.0]}
                     >
 
+                        <ViroText
+                            text="Hello World"
+                            textAlign="left"
+                            textAlignVertical="top"                            
+                            textClipMode="clipToBounds"
+                            color="green"
+                            width={2}
+                            height={2}
+                            style={{ fontFamily: "Arial", fontSize: 20, fontWeight: '400', fontStyle: "italic" }}
+                            position={[0, 0, -.5]}
+                        />
+
                         <ViroFlexView
-                            style={{ flexDirection: 'row', padding: 10 }}
-                            width={1}
+                            style={{ flexDirection: 'row', padding: .1 }}
+                            width={2}
                             height={1}
+                            position={[0, 0, 0]}
+                            rotation={[0, 0, 0]}
                         >
-                            <ViroFlexView style={{ flex: 2 }}>
 
-                                <ViroImage
-                                    position={[0, -.5, -1]}
-                                    height={2}
-                                    width={2}
-                                    source={{ uri: "https://i.kym-cdn.com/entries/icons/mobile/000/005/608/nyan-cat-01-625x450.jpg" }}
-                                />
-                            </ViroFlexView>
+                            <ViroImage
+                                style={{ flex: .5 }}
+                                source={{ uri: "https://i.kym-cdn.com/entries/icons/mobile/000/005/608/nyan-cat-01-625x450.jpg" }}
+                            />
 
-                            <ViroFlexView style={{ flex: 2 }}>
-
-                                <ViroVideo
-                                    source={require('./res/NyanCat.mp4')}
-                                    loop={true}
-                                    position={[0, 2, -5]}
-                                    scale={[2, 2, 0]}
-                                />
-                            </ViroFlexView>
+                        {/* <ViroVideo
+                                style={{ flex: .5 }}
+                                source={require('./res/NyanCat.mp4')}
+                                loop={true}
+                                position={[0, 2, -5]}
+                                scale={[2, 2, 0]}
+                            /> */}
                         </ViroFlexView>
+
                         {/* 
                         <Viro3DObject source={require('./res/blackpanther/object_bpanther_anim.vrx')}
                             resources={[
